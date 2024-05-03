@@ -44,14 +44,13 @@ export async function getAnswers(params: GetAnswersParams) {
     connectionToDatabase();
 
     const { questionId } = params;
-    const answers = await Answer.find({ questionId })
+    const answers = await Answer.find({ question: questionId })
       .populate("author", "_id clerkId name picture") // GETS _id clerkId name and picture from author
       .sort({ createdAt: -1 });
 
     if (!answers) {
       throw new Error("No answers found for the given question ID.");
     }
-
     return answers;
   } catch (error) {
     console.log(error);
@@ -80,7 +79,7 @@ export async function upvoteAnswer(params: AnswerVoteParams) {
     const updatedAnswer = await Answer.findByIdAndUpdate(
       answerId,
       updateQuery,
-      { new: true },
+      { new: true }
     );
 
     if (!updatedAnswer) {
@@ -115,7 +114,7 @@ export async function downvoteAnswer(params: AnswerVoteParams) {
     const updatedAnswer = await Answer.findByIdAndUpdate(
       answerId,
       updateQuery,
-      { new: true },
+      { new: true }
     );
 
     if (!updatedAnswer) {
