@@ -43,7 +43,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
               alt={`Profile Picture`}
               width={25}
               height={25}
-              className=" h-[25px] w-[25px] rounded-full object-cover"
+              className=" size-[25px] rounded-full object-cover"
             />
             <p className=" paragraph-semibold text-dark300_light700">
               {result.question.author.name}
