@@ -24,7 +24,6 @@ const AllAnswers = async ({
   filter,
 }: Props) => {
   const result = await getAnswers({ questionId });
-
   return (
     <div className=" mt-11">
       <div className=" flex items-center justify-between">
@@ -45,7 +44,7 @@ const AllAnswers = async ({
                     alt="profile"
                     width={25}
                     height={25}
-                    className=" h-[25px] w-[25px] rounded-full object-cover max-sm:mt-0.5"
+                    className=" size-[25px] rounded-full object-cover max-sm:mt-0.5"
                   />
                   <div className="flex flex-col sm:flex-row sm:items-center">
                     <p className="body-semibold text-dark300_light700">
